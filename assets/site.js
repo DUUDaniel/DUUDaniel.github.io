@@ -1,17 +1,133 @@
 const SITE_NAME = "Daniel Aerial Photography";
+const HERO_FALLBACK = "hero.jpg";
+
+function driveSrc(id, width) {
+  return `https://lh3.googleusercontent.com/d/${id}=w${width || 1400}`;
+}
+function driveThumb(id, width) {
+  return `https://drive.google.com/thumbnail?id=${id}&sz=w${width || 1400}`;
+}
+function photo(id, title, width) {
+  return {
+    id,
+    src: driveSrc(id, width || 1400),
+    fallbackSrc: driveThumb(id, width || 1400),
+    alt: title,
+    title,
+  };
+}
+
+const HERO = photo("1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq", "Flying into the sunset", 1920);
 
 const CATEGORIES = [
-  { slug: "sunset", title: "Sunset", blurb: "Last light on water.", cover: "covers/sunset.jpg", photos: [] },
-  { slug: "sea", title: "Sea", blurb: "Open water from above.", cover: "covers/sea.jpg", photos: [] },
-  { slug: "rivers", title: "Rivers", blurb: "Silver courses through land.", cover: "covers/rivers.jpg", photos: [] },
-  { slug: "temples", title: "Temples", blurb: "Rooftops at dusk.", cover: "covers/temples.jpg", photos: [] },
-  { slug: "city", title: "City", blurb: "The grid after dark.", cover: "covers/city.jpg", photos: [] },
-  { slug: "forest", title: "Forest", blurb: "Canopy and mist.", cover: "covers/forest.jpg", photos: [] },
-  { slug: "autumn", title: "Autumn", blurb: "Copper from the air.", cover: "covers/autumn.jpg", photos: [] },
-  { slug: "winter", title: "Winter", blurb: "Quiet snowfields.", cover: "covers/winter.jpg", photos: [] },
-  { slug: "summer", title: "Summer", blurb: "Warm fields and shore.", cover: "covers/summer.jpg", photos: [] },
-  { slug: "spring", title: "Spring", blurb: "New green, first blossom.", cover: "covers/spring.jpg", photos: [] },
+  {
+    slug: "sunset",
+    title: "Sunset",
+    blurb: "Last light from the air.",
+    cover: "covers/sunset.jpg",
+    photos: [
+      photo("1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq", "Flying into the sunset"),
+      photo("1fDMn8YPvfdNgy_s37aLa0haUuoOzYfqY", "Fly with passion"),
+    ],
+  },
+  {
+    slug: "sea",
+    title: "Sea",
+    blurb: "Open water from above.",
+    cover: "covers/sea.jpg",
+    photos: [
+      photo("1-_bvqgDT5RiDmOuyOpu3eIk-8_vChxTi", "Above the Beach"),
+      photo("1V8Qik0o2fUrnui5_SlJUElMRYFbT0NU7", "Seashore"),
+      photo("1ecwBSf4xQAlAhYxprw_gFkczHyXFBhwE", "Volcanic Shore"),
+      photo("1lCemqOBHR0VjcWT0m2B86WhmGPP0PPUO", "Volcanic Rock to the sea"),
+    ],
+  },
+  {
+    slug: "rivers",
+    title: "Rivers",
+    blurb: "Silver courses through land.",
+    cover: "covers/rivers.jpg",
+    photos: [],
+  },
+  {
+    slug: "temples",
+    title: "Temples",
+    blurb: "Sacred roofs in first light.",
+    cover: "covers/temples.jpg",
+    photos: [
+      photo("1WtIS84LlPs-iHS_8D35ftHziZVnr_CpC", "Sunrise with temple"),
+      photo("1GM3S_rXPE5-peENJOWruisZLUQ6HTEQR", "Temple in the Spring"),
+    ],
+  },
+  {
+    slug: "city",
+    title: "City",
+    blurb: "The grid after dark.",
+    cover: "covers/city.jpg",
+    photos: [photo("1A_ce1VgFYd0aeWyaGXzegIFEf0Jt_iJu", "CyberCity")],
+  },
+  {
+    slug: "forest",
+    title: "Forest",
+    blurb: "Canopy, redwood, and gap light.",
+    cover: "covers/forest.jpg",
+    photos: [
+      photo("1-bsuiG4yy3iLs0Zg8V3lP_puUmNjCRiK", "Heart of the redwoods"),
+      photo("1STYx6lxXbyR-S7NlTQXNsbDbEbDQigoi", "Drive through the redwoods"),
+      photo("1TT_2rBUM7hmISmZSkE2IrbGfq1N7tkfJ", "Under the woods"),
+      photo("1hi-370GHzXQ0uLeyN5IAGuL3VkzAL5Gz", "Sunlight through the gap"),
+    ],
+  },
+  {
+    slug: "autumn",
+    title: "Autumn",
+    blurb: "Copper from the air.",
+    cover: "covers/autumn.jpg",
+    photos: [photo("1CRc4ysPl68T7uBP1IKBmiDYyGkzczw9o", "When red meets green")],
+  },
+  {
+    slug: "winter",
+    title: "Winter",
+    blurb: "Quiet snowfields.",
+    cover: "covers/winter.jpg",
+    photos: [],
+  },
+  {
+    slug: "summer",
+    title: "Summer",
+    blurb: "Warm fields from above.",
+    cover: "covers/summer.jpg",
+    photos: [
+      photo("1mGDGpEIG8cTdA2sphGgCnZyr44OeATP6", "Vivid Field"),
+      photo("1AyNazPMjbSwj7XlvNbLS-RjTHzr1-ueu", "Through the Field"),
+    ],
+  },
+  {
+    slug: "spring",
+    title: "Spring",
+    blurb: "New green, first blossom.",
+    cover: "covers/spring.jpg",
+    photos: [],
+  },
 ];
+
+function coverOf(category) {
+  if (!category.photos.length) return category.cover;
+  return category.photos[Math.floor(Math.random() * category.photos.length)].src;
+}
+
+function bindDriveImage(img, primary, fallback, lastResort) {
+  img.referrerPolicy = "no-referrer";
+  img.src = primary;
+  img.addEventListener("error", () => {
+    if (img.dataset.step === "fallback") {
+      if (lastResort) img.src = lastResort;
+      return;
+    }
+    img.dataset.step = "fallback";
+    img.src = fallback;
+  });
+}
 
 const intro = document.querySelector("#intro");
 const work = document.querySelector("#work");
@@ -23,11 +139,17 @@ titleEls.forEach((el) => {
   el.textContent = SITE_NAME;
 });
 
-grid.innerHTML = CATEGORIES.map(
-  (category) => `
+const introPhoto = document.querySelector(".intro-photo");
+if (introPhoto) {
+  bindDriveImage(introPhoto, HERO.src, HERO.fallbackSrc, HERO_FALLBACK);
+}
+
+grid.innerHTML = CATEGORIES.map((category) => {
+  const cover = coverOf(category);
+  return `
   <a class="card" href="#gallery/${category.slug}">
     <div class="card-tone" aria-hidden="true"></div>
-    <img src="${category.cover}" alt="" />
+    <img data-cover="${category.cover}" src="${cover}" alt="" referrerpolicy="no-referrer" />
     <div class="card-veil" aria-hidden="true"></div>
     <div class="card-copy">
       <div>
@@ -36,8 +158,17 @@ grid.innerHTML = CATEGORIES.map(
       </div>
       <span class="card-view">View</span>
     </div>
-  </a>`,
-).join("");
+  </a>`;
+}).join("");
+
+grid.querySelectorAll("img[data-cover]").forEach((img) => {
+  img.addEventListener("error", () => {
+    const original = img.getAttribute("data-cover");
+    if (original && img.src !== original && !img.src.endsWith(original)) {
+      img.src = original;
+    }
+  });
+});
 
 function showIntro() {
   document.body.style.overflow = "hidden";
@@ -86,12 +217,19 @@ function showCategory(slug) {
 
   mount.innerHTML = `<div class="frames">${photos
     .map(
-      (photo, index) => `
+      (item, index) => `
         <button class="photo-btn" type="button" data-index="${index}">
-          <img src="${photo.src}" alt="${photo.alt}" />
+          <img src="${item.src}" alt="${item.alt}" referrerpolicy="no-referrer" data-fallback="${item.fallbackSrc}" />
         </button>`,
     )
     .join("")}</div>`;
+
+  mount.querySelectorAll("img[data-fallback]").forEach((img) => {
+    img.addEventListener("error", () => {
+      const next = img.getAttribute("data-fallback");
+      if (next && img.src !== next) img.src = next;
+    });
+  });
 
   mount.querySelectorAll(".photo-btn").forEach((button) => {
     button.addEventListener("click", () => openLightbox(photos, Number(button.dataset.index)));
@@ -179,11 +317,19 @@ function openLightbox(photos, index) {
   const root = document.querySelector("#lightbox");
   const img = root.querySelector("img");
   const caption = root.querySelector("figcaption");
+  img.referrerPolicy = "no-referrer";
   const show = (i) => {
-    const photo = photos[(i + photos.length) % photos.length];
-    img.src = photo.src;
-    img.alt = photo.alt;
-    caption.textContent = photo.title ?? "";
+    const item = photos[(i + photos.length) % photos.length];
+    img.dataset.step = "";
+    img.onerror = () => {
+      if (img.dataset.step !== "fallback") {
+        img.dataset.step = "fallback";
+        img.src = item.fallbackSrc;
+      }
+    };
+    img.src = item.src;
+    img.alt = item.alt;
+    caption.textContent = item.title ?? "";
     root.dataset.index = String((i + photos.length) % photos.length);
   };
   show(index);
