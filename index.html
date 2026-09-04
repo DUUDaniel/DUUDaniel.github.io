@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,6 +9,17 @@
       content="Aerial photography by Daniel — landscapes, cities, and seasons from above."
     />
     <meta name="theme-color" content="#0b0b0c" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("dap-theme");
+          if (t) {
+            document.documentElement.setAttribute("data-theme", t);
+            document.documentElement.style.colorScheme = t === "paper" ? "light" : "dark";
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -89,6 +100,10 @@
           <path d="m9 18 6-6-6-6" />
         </svg>
       </button>
+    </div>
+
+    <div id="theme-picker" class="theme-picker" role="group" aria-label="Color theme">
+      <span class="theme-label">Tone</span>
     </div>
 
     <script src="assets/site.js"></script>

@@ -438,4 +438,53 @@ function openLightbox(photos, index) {
   window.addEventListener("keydown", onKeyBox);
 }
 
+const TONES = [
+  { id: "night", label: "Night", swatch: "#0b0b0c", color: "#0b0b0c" },
+  { id: "paper", label: "Paper", swatch: "#f2ebe0", color: "#f2ebe0" },
+  { id: "fog", label: "Fog", swatch: "#101318", color: "#101318" },
+  { id: "dusk", label: "Dusk", swatch: "#120e0c", color: "#120e0c" },
+  { id: "pine", label: "Pine", swatch: "#0c110f", color: "#0c110f" },
+];
+
+function applyTone(id) {
+  const tone = TONES.find((item) => item.id === id) || TONES[0];
+  document.documentElement.dataset.theme = tone.id;
+  document.documentElement.style.colorScheme = tone.id === "paper" ? "light" : "dark";
+  document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+    meta.setAttribute("content", tone.color);
+  });
+  try {
+    localStorage.setItem("dap-theme", tone.id);
+  } catch (error) {
+    /* ignore */
+  }
+  document.querySelectorAll(".theme-swatch").forEach((button) => {
+    button.setAttribute("aria-pressed", button.dataset.theme === tone.id ? "true" : "false");
+  });
+}
+
+(function initTone() {
+  const mount = document.querySelector("#theme-picker");
+  if (!mount) return;
+  let current = "night";
+  try {
+    const stored = localStorage.getItem("dap-theme");
+    if (TONES.some((item) => item.id === stored)) current = stored;
+  } catch (error) {
+    /* ignore */
+  }
+  TONES.forEach((tone) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "theme-swatch";
+    button.dataset.theme = tone.id;
+    button.setAttribute("aria-label", tone.label);
+    button.title = tone.label;
+    button.innerHTML = `<span style="background:${tone.swatch}"></span>`;
+    button.addEventListener("click", () => applyTone(tone.id));
+    mount.appendChild(button);
+  });
+  applyTone(current);
+})();
+
 route();
