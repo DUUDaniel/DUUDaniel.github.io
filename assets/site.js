@@ -7,34 +7,101 @@ function driveSrc(id, width) {
 function driveThumb(id, width) {
   return `https://drive.google.com/thumbnail?id=${id}&sz=w${width || 1400}`;
 }
-function photo(id, title, width) {
+function photo(id, title, description) {
   return {
     id,
-    src: driveSrc(id, width || 1400),
-    fallbackSrc: driveThumb(id, width || 1400),
+    src: driveSrc(id, 1400),
+    fallbackSrc: driveThumb(id, 1400),
+    fullSrc: driveSrc(id, 2560),
+    fullFallbackSrc: driveThumb(id, 2560),
     alt: title,
     title,
+    description,
   };
 }
 
-const flyingIntoTheSunset = photo("1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq", "Flying into the sunset");
-const flyWithPassion = photo("1fDMn8YPvfdNgy_s37aLa0haUuoOzYfqY", "Fly with passion");
-const vividField = photo("1mGDGpEIG8cTdA2sphGgCnZyr44OeATP6", "Vivid Field");
-const throughTheField = photo("1AyNazPMjbSwj7XlvNbLS-RjTHzr1-ueu", "Through the Field");
-const volcanicShore = photo("1ecwBSf4xQAlAhYxprw_gFkczHyXFBhwE", "Volcanic Shore");
-const volcanicRockToTheSea = photo("1lCemqOBHR0VjcWT0m2B86WhmGPP0PPUO", "Volcanic Rock to the sea");
-const seashore = photo("1V8Qik0o2fUrnui5_SlJUElMRYFbT0NU7", "Seashore");
-const aboveTheBeach = photo("1-_bvqgDT5RiDmOuyOpu3eIk-8_vChxTi", "Above the Beach");
-const cyberCity = photo("1A_ce1VgFYd0aeWyaGXzegIFEf0Jt_iJu", "CyberCity");
-const whenRedMeetsGreen = photo("1CRc4ysPl68T7uBP1IKBmiDYyGkzczw9o", "When red meets green");
-const underTheWoods = photo("1TT_2rBUM7hmISmZSkE2IrbGfq1N7tkfJ", "Under the woods");
-const driveThroughTheRedwoods = photo("1STYx6lxXbyR-S7NlTQXNsbDbEbDQigoi", "Drive through the redwoods");
-const heartOfTheRedwoods = photo("1-bsuiG4yy3iLs0Zg8V3lP_puUmNjCRiK", "Heart of the redwoods");
-const sunlightThroughTheGap = photo("1hi-370GHzXQ0uLeyN5IAGuL3VkzAL5Gz", "Sunlight through the gap");
-const sunriseWithTemple = photo("1WtIS84LlPs-iHS_8D35ftHziZVnr_CpC", "Sunrise with temple");
-const templeInTheSpring = photo("1GM3S_rXPE5-peENJOWruisZLUQ6HTEQR", "Temple in the Spring");
+const flyingIntoTheSunset = photo(
+  "1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq",
+  "Flying into the sunset",
+  "The flight holds the last band of light.",
+);
+const flyWithPassion = photo(
+  "1fDMn8YPvfdNgy_s37aLa0haUuoOzYfqY",
+  "Fly with passion",
+  "A line drawn through dusk.",
+);
+const vividField = photo(
+  "1mGDGpEIG8cTdA2sphGgCnZyr44OeATP6",
+  "Vivid Field",
+  "Color laid across open ground.",
+);
+const throughTheField = photo(
+  "1AyNazPMjbSwj7XlvNbLS-RjTHzr1-ueu",
+  "Through the Field",
+  "A path through the crop, seen from above.",
+);
+const volcanicShore = photo(
+  "1ecwBSf4xQAlAhYxprw_gFkczHyXFBhwE",
+  "Volcanic Shore",
+  "Dark rock meeting the water.",
+);
+const volcanicRockToTheSea = photo(
+  "1lCemqOBHR0VjcWT0m2B86WhmGPP0PPUO",
+  "Volcanic Rock to the sea",
+  "Stone falling toward the swell.",
+);
+const seashore = photo(
+  "1V8Qik0o2fUrnui5_SlJUElMRYFbT0NU7",
+  "Seashore",
+  "The edge of land, from the air.",
+);
+const aboveTheBeach = photo(
+  "1-_bvqgDT5RiDmOuyOpu3eIk-8_vChxTi",
+  "Above the Beach",
+  "Looking down on the strand.",
+);
+const cyberCity = photo("1A_ce1VgFYd0aeWyaGXzegIFEf0Jt_iJu", "CyberCity", "The night grid, lit.");
+const whenRedMeetsGreen = photo(
+  "1CRc4ysPl68T7uBP1IKBmiDYyGkzczw9o",
+  "When red meets green",
+  "Two canopies sharing a line.",
+);
+const underTheWoods = photo(
+  "1TT_2rBUM7hmISmZSkE2IrbGfq1N7tkfJ",
+  "Under the woods",
+  "Beneath the cover of trees.",
+);
+const driveThroughTheRedwoods = photo(
+  "1STYx6lxXbyR-S7NlTQXNsbDbEbDQigoi",
+  "Drive through the redwoods",
+  "A road held by the grove.",
+);
+const heartOfTheRedwoods = photo(
+  "1-bsuiG4yy3iLs0Zg8V3lP_puUmNjCRiK",
+  "Heart of the redwoods",
+  "The stand at its densest.",
+);
+const sunlightThroughTheGap = photo(
+  "1hi-370GHzXQ0uLeyN5IAGuL3VkzAL5Gz",
+  "Sunlight through the gap",
+  "Light finding a break in the canopy.",
+);
+const sunriseWithTemple = photo(
+  "1WtIS84LlPs-iHS_8D35ftHziZVnr_CpC",
+  "Sunrise with temple",
+  "First light on the roof.",
+);
+const templeInTheSpring = photo(
+  "1GM3S_rXPE5-peENJOWruisZLUQ6HTEQR",
+  "Temple in the Spring",
+  "The temple standing in new green.",
+);
 
-const HERO = photo("1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq", "Flying into the sunset", 1920);
+const HERO = {
+  ...flyingIntoTheSunset,
+  src: driveSrc(flyingIntoTheSunset.id, 1920),
+  fallbackSrc: driveThumb(flyingIntoTheSunset.id, 1920),
+};
 
 const CATEGORIES = [
   {
@@ -320,24 +387,34 @@ document.querySelector("#skip").addEventListener("click", (event) => {
 function openLightbox(photos, index) {
   const root = document.querySelector("#lightbox");
   const img = root.querySelector("img");
-  const caption = root.querySelector("figcaption");
+  const titleEl = root.querySelector(".photo-title");
+  const copyEl = root.querySelector(".photo-copy");
   img.referrerPolicy = "no-referrer";
   const show = (i) => {
     const item = photos[(i + photos.length) % photos.length];
     img.dataset.step = "";
     img.onerror = () => {
+      if (img.dataset.step === "full") {
+        img.dataset.step = "preview";
+        img.src = item.src;
+        return;
+      }
       if (img.dataset.step !== "fallback") {
         img.dataset.step = "fallback";
-        img.src = item.fallbackSrc;
+        img.src = item.fullFallbackSrc || item.fallbackSrc;
       }
     };
-    img.src = item.src;
+    img.dataset.step = "full";
+    img.src = item.fullSrc || item.src;
     img.alt = item.alt;
-    caption.textContent = item.title ?? "";
+    titleEl.textContent = item.title ?? "";
+    copyEl.textContent = item.description ?? "";
     root.dataset.index = String((i + photos.length) % photos.length);
   };
   show(index);
   root.classList.remove("hidden");
+  root.querySelector(".prev").style.display = photos.length > 1 ? "" : "none";
+  root.querySelector(".next").style.display = photos.length > 1 ? "" : "none";
   const onKeyBox = (event) => {
     if (event.key === "Escape") close();
     if (event.key === "ArrowLeft") show(Number(root.dataset.index) - 1);
