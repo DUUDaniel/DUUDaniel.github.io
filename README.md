@@ -1,35 +1,14 @@
 # Daniel Aerial Photography
 
-Personal aerial photography site, published at [https://duudaniel.github.io](https://duudaniel.github.io).
+Live site: [https://duudaniel.github.io](https://duudaniel.github.io)
 
-## Replace the front-page photograph
+Photographs are **not** stored in this GitHub repo. Originals go in Google Drive; web-sized copies are published to the site on request.
 
-Overwrite `hero.jpg` in the repository root with your own image (wide landscape works best). Keep the filename `hero.jpg`.
+Drive library: [Daniel Aerial Photography](https://drive.google.com/drive/folders/1d7Ka6CPxKdiSiuOWaASCkKmPBcfaCbEF)
 
-## Replace a category cover
+| Folder | Use |
+|---|---|
+| `00-hero` | Front-page background |
+| `sunset` `sea` `rivers` `temples` `city` `forest` `autumn` `winter` `summer` `spring` | Collection photos |
 
-Overwrite the matching file in `covers/`:
-
-- `covers/sunset.jpg`
-- `covers/sea.jpg`
-- `covers/rivers.jpg`
-- `covers/temples.jpg`
-- `covers/city.jpg`
-- `covers/forest.jpg`
-- `covers/autumn.jpg`
-- `covers/winter.jpg`
-- `covers/summer.jpg`
-- `covers/spring.jpg`
-
-## Add photographs to a collection
-
-1. Drop image files into `photos/{category}/` (for example `photos/sunset/01.jpg`).
-2. Open `assets/site.js` and add each file to that category’s `photos` array:
-
-```js
-photos: [
-  { src: "photos/sunset/01.jpg", alt: "Sunset over the bay", title: "Bay" },
-]
-```
-
-Collections currently wait empty on purpose so the frames are ready for your work.
+Drop full-size files into the matching folder (large drone JPEGs are fine), then ask to publish that collection. GitHub never holds the originals.
