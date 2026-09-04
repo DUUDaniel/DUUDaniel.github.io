@@ -100,14 +100,16 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  overscroll-behavior: none;
   background: var(--bg);
-  transition: transform 900ms var(--ease), opacity 700ms var(--ease);
+  transition: transform 900ms var(--ease), opacity 700ms var(--ease), visibility 0s linear 750ms;
 }
 
 .intro.is-away {
-  transform: translate3d(0, -12%, 0);
+  transform: translate3d(0, -8%, 0);
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .intro-photo,
@@ -557,4 +559,5 @@ img { display: block; max-width: 100%; }
     animation: none !important;
     transition: none !important;
   }
+  .intro.is-away { display: none; }
 }

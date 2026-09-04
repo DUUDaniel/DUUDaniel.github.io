@@ -201,10 +201,11 @@ function bindDriveImage(img, primary, fallback, lastResort) {
 }
 
 const intro = document.querySelector("#intro");
-const work = document.querySelector("#work");
+const work = document.querySelector("#work-view");
 const categoryView = document.querySelector("#category");
 const grid = document.querySelector("#grid");
 const titleEls = document.querySelectorAll("[data-site-name]");
+let view = "intro";
 
 titleEls.forEach((el) => {
   el.textContent = SITE_NAME;
@@ -242,16 +243,25 @@ grid.querySelectorAll("img[data-cover]").forEach((img) => {
 });
 
 function showIntro() {
+  view = "intro";
   document.body.style.overflow = "hidden";
   intro.classList.remove("is-away");
+  intro.removeAttribute("inert");
   intro.setAttribute("aria-hidden", "false");
   work.classList.add("hidden");
   categoryView.classList.add("hidden");
 }
 
 function showWork() {
+  view = "work";
   document.body.style.overflow = "";
+  try {
+    sessionStorage.setItem("dap-entered", "1");
+  } catch (error) {
+    /* ignore */
+  }
   intro.classList.add("is-away");
+  intro.setAttribute("inert", "");
   intro.setAttribute("aria-hidden", "true");
   work.classList.remove("hidden");
   categoryView.classList.add("hidden");
@@ -261,11 +271,14 @@ function showWork() {
 function showCategory(slug) {
   const category = CATEGORIES.find((item) => item.slug === slug);
   if (!category) {
-    location.hash = "work";
+    showWork();
+    history.replaceState(null, "", location.pathname + location.search);
     return;
   }
+  view = "gallery";
   document.body.style.overflow = "";
   intro.classList.add("is-away");
+  intro.setAttribute("inert", "");
   intro.setAttribute("aria-hidden", "true");
   work.classList.add("hidden");
   categoryView.classList.remove("hidden");
@@ -310,33 +323,45 @@ function showCategory(slug) {
 function route() {
   const hash = location.hash.replace(/^#/, "");
   if (hash.startsWith("gallery/")) {
+    try {
+      sessionStorage.setItem("dap-entered", "1");
+    } catch (error) {
+      /* ignore */
+    }
     showCategory(hash.slice("gallery/".length));
     return;
   }
-  if (hash === "work") {
-    document.title = SITE_NAME;
+  document.title = SITE_NAME;
+  let entered = false;
+  try {
+    entered = sessionStorage.getItem("dap-entered") === "1";
+  } catch (error) {
+    entered = false;
+  }
+  if (entered || hash === "work") {
     showWork();
+    if (hash === "work") {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
     return;
   }
-  document.title = SITE_NAME;
   showIntro();
 }
 
 function enter() {
-  if (location.hash === "work") {
-    showWork();
-    return;
+  if (view !== "intro") return;
+  try {
+    sessionStorage.setItem("dap-entered", "1");
+  } catch (error) {
+    /* ignore */
   }
-  location.hash = "work";
+  showWork();
 }
 
-let locked = false;
 function onWheel(event) {
-  if (location.hash && location.hash !== "") return;
+  if (view !== "intro") return;
   if (event.deltaY > 10) {
     event.preventDefault();
-    if (locked) return;
-    locked = true;
     enter();
   }
 }
@@ -346,38 +371,37 @@ function onTouchStart(event) {
   startY = event.touches[0]?.clientY ?? 0;
 }
 function onTouchMove(event) {
-  if (location.hash && location.hash !== "") return;
+  if (view !== "intro") return;
   const y = event.touches[0]?.clientY ?? startY;
   if (startY - y > 36) {
     event.preventDefault();
-    if (locked) return;
-    locked = true;
     enter();
   }
 }
 function onKey(event) {
-  if (location.hash && location.hash !== "") return;
+  if (view !== "intro") return;
   if (["ArrowDown", "PageDown", " ", "Enter"].includes(event.key)) {
     event.preventDefault();
-    if (locked) return;
-    locked = true;
     enter();
   }
 }
 
-window.addEventListener("hashchange", () => {
-  locked = Boolean(location.hash);
-  route();
-});
-window.addEventListener("wheel", onWheel, { passive: false });
-window.addEventListener("touchstart", onTouchStart, { passive: true });
-window.addEventListener("touchmove", onTouchMove, { passive: false });
+window.addEventListener("hashchange", route);
+intro.addEventListener("wheel", onWheel, { passive: false });
+intro.addEventListener("touchstart", onTouchStart, { passive: true });
+intro.addEventListener("touchmove", onTouchMove, { passive: false });
 window.addEventListener("keydown", onKey);
 
 document.querySelector("#scroll-enter").addEventListener("click", enter);
 document.querySelector("#brand-home").addEventListener("click", () => {
-  locked = false;
-  location.hash = "";
+  try {
+    sessionStorage.removeItem("dap-entered");
+  } catch (error) {
+    /* ignore */
+  }
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  showIntro();
+  window.scrollTo({ top: 0, behavior: "auto" });
 });
 document.querySelector("#skip").addEventListener("click", (event) => {
   event.preventDefault();
