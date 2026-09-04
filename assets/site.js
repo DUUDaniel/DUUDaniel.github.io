@@ -17,6 +17,23 @@ function photo(id, title, width) {
   };
 }
 
+const flyingIntoTheSunset = photo("1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq", "Flying into the sunset");
+const flyWithPassion = photo("1fDMn8YPvfdNgy_s37aLa0haUuoOzYfqY", "Fly with passion");
+const vividField = photo("1mGDGpEIG8cTdA2sphGgCnZyr44OeATP6", "Vivid Field");
+const throughTheField = photo("1AyNazPMjbSwj7XlvNbLS-RjTHzr1-ueu", "Through the Field");
+const volcanicShore = photo("1ecwBSf4xQAlAhYxprw_gFkczHyXFBhwE", "Volcanic Shore");
+const volcanicRockToTheSea = photo("1lCemqOBHR0VjcWT0m2B86WhmGPP0PPUO", "Volcanic Rock to the sea");
+const seashore = photo("1V8Qik0o2fUrnui5_SlJUElMRYFbT0NU7", "Seashore");
+const aboveTheBeach = photo("1-_bvqgDT5RiDmOuyOpu3eIk-8_vChxTi", "Above the Beach");
+const cyberCity = photo("1A_ce1VgFYd0aeWyaGXzegIFEf0Jt_iJu", "CyberCity");
+const whenRedMeetsGreen = photo("1CRc4ysPl68T7uBP1IKBmiDYyGkzczw9o", "When red meets green");
+const underTheWoods = photo("1TT_2rBUM7hmISmZSkE2IrbGfq1N7tkfJ", "Under the woods");
+const driveThroughTheRedwoods = photo("1STYx6lxXbyR-S7NlTQXNsbDbEbDQigoi", "Drive through the redwoods");
+const heartOfTheRedwoods = photo("1-bsuiG4yy3iLs0Zg8V3lP_puUmNjCRiK", "Heart of the redwoods");
+const sunlightThroughTheGap = photo("1hi-370GHzXQ0uLeyN5IAGuL3VkzAL5Gz", "Sunlight through the gap");
+const sunriseWithTemple = photo("1WtIS84LlPs-iHS_8D35ftHziZVnr_CpC", "Sunrise with temple");
+const templeInTheSpring = photo("1GM3S_rXPE5-peENJOWruisZLUQ6HTEQR", "Temple in the Spring");
+
 const HERO = photo("1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq", "Flying into the sunset", 1920);
 
 const CATEGORIES = [
@@ -25,22 +42,14 @@ const CATEGORIES = [
     title: "Sunset",
     blurb: "Last light from the air.",
     cover: "covers/sunset.jpg",
-    photos: [
-      photo("1XPvbbcUc2sEZF7yA7ub3d9C3fVncnZnq", "Flying into the sunset"),
-      photo("1fDMn8YPvfdNgy_s37aLa0haUuoOzYfqY", "Fly with passion"),
-    ],
+    photos: [flyingIntoTheSunset, flyWithPassion, sunriseWithTemple, sunlightThroughTheGap],
   },
   {
     slug: "sea",
     title: "Sea",
     blurb: "Open water from above.",
     cover: "covers/sea.jpg",
-    photos: [
-      photo("1-_bvqgDT5RiDmOuyOpu3eIk-8_vChxTi", "Above the Beach"),
-      photo("1V8Qik0o2fUrnui5_SlJUElMRYFbT0NU7", "Seashore"),
-      photo("1ecwBSf4xQAlAhYxprw_gFkczHyXFBhwE", "Volcanic Shore"),
-      photo("1lCemqOBHR0VjcWT0m2B86WhmGPP0PPUO", "Volcanic Rock to the sea"),
-    ],
+    photos: [aboveTheBeach, seashore, volcanicShore, volcanicRockToTheSea],
   },
   {
     slug: "rivers",
@@ -54,17 +63,14 @@ const CATEGORIES = [
     title: "Temples",
     blurb: "Sacred roofs in first light.",
     cover: "covers/temples.jpg",
-    photos: [
-      photo("1WtIS84LlPs-iHS_8D35ftHziZVnr_CpC", "Sunrise with temple"),
-      photo("1GM3S_rXPE5-peENJOWruisZLUQ6HTEQR", "Temple in the Spring"),
-    ],
+    photos: [sunriseWithTemple, templeInTheSpring],
   },
   {
     slug: "city",
     title: "City",
     blurb: "The grid after dark.",
     cover: "covers/city.jpg",
-    photos: [photo("1A_ce1VgFYd0aeWyaGXzegIFEf0Jt_iJu", "CyberCity")],
+    photos: [cyberCity],
   },
   {
     slug: "forest",
@@ -72,10 +78,11 @@ const CATEGORIES = [
     blurb: "Canopy, redwood, and gap light.",
     cover: "covers/forest.jpg",
     photos: [
-      photo("1-bsuiG4yy3iLs0Zg8V3lP_puUmNjCRiK", "Heart of the redwoods"),
-      photo("1STYx6lxXbyR-S7NlTQXNsbDbEbDQigoi", "Drive through the redwoods"),
-      photo("1TT_2rBUM7hmISmZSkE2IrbGfq1N7tkfJ", "Under the woods"),
-      photo("1hi-370GHzXQ0uLeyN5IAGuL3VkzAL5Gz", "Sunlight through the gap"),
+      heartOfTheRedwoods,
+      driveThroughTheRedwoods,
+      underTheWoods,
+      whenRedMeetsGreen,
+      sunlightThroughTheGap,
     ],
   },
   {
@@ -83,7 +90,7 @@ const CATEGORIES = [
     title: "Autumn",
     blurb: "Copper from the air.",
     cover: "covers/autumn.jpg",
-    photos: [photo("1CRc4ysPl68T7uBP1IKBmiDYyGkzczw9o", "When red meets green")],
+    photos: [whenRedMeetsGreen],
   },
   {
     slug: "winter",
@@ -97,17 +104,14 @@ const CATEGORIES = [
     title: "Summer",
     blurb: "Warm fields from above.",
     cover: "covers/summer.jpg",
-    photos: [
-      photo("1mGDGpEIG8cTdA2sphGgCnZyr44OeATP6", "Vivid Field"),
-      photo("1AyNazPMjbSwj7XlvNbLS-RjTHzr1-ueu", "Through the Field"),
-    ],
+    photos: [vividField, aboveTheBeach, seashore],
   },
   {
     slug: "spring",
     title: "Spring",
     blurb: "New green, first blossom.",
     cover: "covers/spring.jpg",
-    photos: [],
+    photos: [templeInTheSpring, throughTheField],
   },
 ];
 
