@@ -195,6 +195,9 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-size: 0.6875rem;
+}
+
+.scroll-btn svg {
   animation: pulse 2.4s var(--ease) infinite;
 }
 
@@ -464,6 +467,10 @@ img { display: block; max-width: 100%; }
 .lightbox .close { top: 1rem; right: 1rem; }
 .lightbox .prev { top: 50%; left: 0.5rem; transform: translateY(-50%); }
 .lightbox .next { top: 50%; right: 0.5rem; transform: translateY(-50%); }
+
+.hidden {
+  display: none !important;
+}
 
 .theme-picker {
   position: fixed;
