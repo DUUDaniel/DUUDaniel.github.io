@@ -453,7 +453,9 @@ img { display: block; max-width: 100%; }
   line-height: 1.6;
 }
 
-.lightbox button {
+.lightbox .close,
+.lightbox .prev,
+.lightbox .next {
   position: absolute;
   border: 0;
   background: none;
@@ -463,7 +465,9 @@ img { display: block; max-width: 100%; }
   height: 44px;
 }
 
-.lightbox button:hover { color: var(--fg); }
+.lightbox .close:hover,
+.lightbox .prev:hover,
+.lightbox .next:hover { color: var(--fg); }
 .lightbox .close { top: 1rem; right: 1rem; }
 .lightbox .prev { top: 50%; left: 0.5rem; transform: translateY(-50%); }
 .lightbox .next { top: 50%; right: 0.5rem; transform: translateY(-50%); }
@@ -484,6 +488,11 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--line);
   background: color-mix(in oklab, var(--surface) 92%, transparent);
   backdrop-filter: blur(2px);
+}
+
+body:has(.lightbox:not(.hidden)) .theme-picker {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .theme-label {

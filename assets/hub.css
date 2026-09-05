@@ -51,7 +51,8 @@
   max-height: 100dvh;
   flex-direction: column;
   align-items: stretch;
-  padding: 4.5rem 1rem 2rem;
+  overflow: auto;
+  padding: 4.5rem 1rem 6.5rem;
 }
 
 .film-player {
@@ -108,7 +109,10 @@
 }
 
 .moment-btn {
+  position: relative;
   display: inline-flex;
+  width: auto;
+  height: auto;
   min-height: 44px;
   align-items: center;
   gap: 0.55rem;
