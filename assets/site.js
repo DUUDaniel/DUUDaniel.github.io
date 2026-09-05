@@ -263,6 +263,26 @@ const sunriseOnTheCliffWithSwallows = photo(
   "Sunrise on the cliff with swallows",
   "First light, and birds in the updraft.",
 );
+const onTheRiver = photo(
+  "1wwTVJkwuk2-BsZ3raqx_BYISQRnhavMw",
+  "On the river",
+  "A hull drawing the current.",
+);
+const crossTheRiver = photo(
+  "1yms8z8OpvT3rXi49gOn2GFOcjJJGCSws",
+  "Cross the river",
+  "A span holding two banks at last light.",
+);
+const parkReachedBySpring = photo(
+  "1XtRL082m_15EePlZe079nGwFj3CqGA5b",
+  "Park reached by Spring",
+  "New green taking the park, path and all.",
+);
+const walkingThroughTheSpring = photo(
+  "18WqycVMr0rqVc1NUMUM0W5vXPjL5BYJL",
+  "Walking through the spring",
+  "Figures on the road, canopy on either side.",
+);
 
 const flyingIntoTheRedwoods = {
   title: "Flying into the Redwoods",
@@ -320,6 +340,62 @@ const templeAboveTwoRivers = {
   ],
 };
 
+const sunsetOverTheBay = {
+  title: "Sunset over the Bay",
+  description: "Last light held over open water.",
+  driveId: "1H1zoWpkbbT4WUz2ZoHLty1uFipkf4JF0",
+  skypixel: "https://www.skypixel.com/videos/aef7b2a4-b2a4-41ba-a59b-78caab697686",
+  poster: flyingOverTheWaterIntoTheSunset,
+  moments: [
+    { time: 0, label: "Water", thumb: flyingOverTheWaterIntoTheSunset.src },
+    { time: 12, label: "Shore", thumb: walkingBesidesTheSea.src },
+    { time: 24, label: "Skyline", thumb: burningSkyline.src },
+    { time: 36, label: "Dusk", thumb: flyingIntoTheSunset.src },
+  ],
+};
+
+const headingTowardThePort = {
+  title: "Heading Toward the Port",
+  description: "The coast coming into reach, then the harbor.",
+  driveId: "1sQbc3Od7M5HqQes5lRv7LnrOPB9RUoAV",
+  skypixel: "https://www.skypixel.com/videos/heading-toward-the-port",
+  poster: headingTowardsTheShore,
+  moments: [
+    { time: 0, label: "Coast", thumb: headingTowardsTheShore.src },
+    { time: 15, label: "Shore", thumb: seashore.src },
+    { time: 30, label: "Beach", thumb: aboveTheBeach.src },
+    { time: 45, label: "Open", thumb: aloneInTheSea.src },
+  ],
+};
+
+const athletesInTheRiver = {
+  title: "Athletes in the River",
+  description: "Bodies drawing lines on the current.",
+  driveId: "1wi_NSk0lunOnGvrfhi1zz-N2fTwIR1SG",
+  skypixel: "https://www.skypixel.com/videos/77a5dfbf-8286-45ce-96e2-c4b4e44f2afc",
+  poster: onTheRiver,
+  moments: [
+    { time: 0, label: "Hull", thumb: onTheRiver.src },
+    { time: 15, label: "Span", thumb: crossTheRiver.src },
+    { time: 30, label: "Ship", thumb: aroundTheCityInAShip.src },
+    { time: 45, label: "Meeting", thumb: meetingAboveTheWater.src },
+  ],
+};
+
+const climbingToTheTop = {
+  title: "Climbing to the Top",
+  description: "The ridge, then the summit.",
+  driveId: "1mAV0lYwoFruM5xhV8njKQ6atmGUvTooW",
+  skypixel: "https://www.skypixel.com/videos/3fec79bc-fb33-446b-ada4-52080e602473",
+  poster: sunriseOnTheCliffWithSwallows,
+  moments: [
+    { time: 0, label: "Cliff", thumb: sunriseOnTheCliffWithSwallows.src },
+    { time: 15, label: "Light", thumb: sunlightThroughTheCloudOnTheCliff.src },
+    { time: 30, label: "Hat", thumb: mountainWearingAHat.src },
+    { time: 45, label: "Cloud", thumb: mountainSurroundedByCloud.src },
+  ],
+};
+
 const LETTER = {
   kicker: "A note",
   name: "Daniel",
@@ -355,7 +431,7 @@ const CATEGORIES = [
       sunriseWithTemple,
       sunlightThroughTheGap,
     ],
-    videos: [],
+    videos: [sunsetOverTheBay],
   },
   {
     slug: "sea",
@@ -378,15 +454,15 @@ const CATEGORIES = [
       walking,
       whenTheColdMeetsWarmth,
     ],
-    videos: [],
+    videos: [headingTowardThePort],
   },
   {
     slug: "rivers",
     title: "Rivers",
     blurb: "Silver courses through land.",
     cover: "covers/rivers.jpg",
-    photos: [],
-    videos: [],
+    photos: [onTheRiver, crossTheRiver],
+    videos: [athletesInTheRiver],
   },
   {
     slug: "temples",
@@ -439,7 +515,7 @@ const CATEGORIES = [
       sunlightThroughTheCloudOnTheCliff,
       sunriseOnTheCliffWithSwallows,
     ],
-    videos: [mountainViews],
+    videos: [mountainViews, climbingToTheTop],
   },
   {
     slug: "autumn",
@@ -485,7 +561,7 @@ const CATEGORIES = [
     title: "Spring",
     blurb: "New green, first blossom.",
     cover: "covers/spring.jpg",
-    photos: [templeInTheSpring, throughTheField],
+    photos: [parkReachedBySpring, walkingThroughTheSpring, templeInTheSpring, throughTheField],
     videos: [],
   },
 ];
