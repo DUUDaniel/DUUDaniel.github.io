@@ -28,7 +28,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500&display=swap"
     />
-    <link rel="stylesheet" href="assets/site.css?v=7" />
+    <link rel="stylesheet" href="assets/site.css?v=8" />
     <link rel="stylesheet" href="assets/hub.css?v=4" />
   </head>
   <body>
@@ -42,7 +42,7 @@
         <h1 class="hero-title" data-site-name>Daniel Aerial Photography</h1>
       </div>
       <div class="scroll-wrap">
-        <button id="scroll-enter" class="scroll-btn" type="button" aria-label="Scroll to enter the gallery">
+        <button id="scroll-enter" class="scroll-btn" type="button" aria-label="Scroll to the letter">
           Scroll to enter
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
             <path d="m6 9 6 6 6-6" />
@@ -51,7 +51,24 @@
       </div>
     </section>
 
-    <main id="work-view" class="work hidden">
+    <section id="letter" class="letter">
+      <div class="letter-reel">
+        <div class="letter-gate" aria-hidden="true">
+          <div id="letter-strip" class="letter-strip"></div>
+        </div>
+        <p class="letter-reel-note">Stills from the flights</p>
+      </div>
+      <div class="letter-copy">
+        <p class="kicker">A note</p>
+        <h2 class="letter-name">Daniel</h2>
+        <p class="letter-lede">I fly to see how the land holds light.</p>
+        <p class="letter-body">On the ground a forest is trunks. From the air the stand just continues — no wall, only canopy, river, and the last band of the day.</p>
+        <p class="letter-body">I take the aircraft up with whoever will come. These stills and reels are what the flights keep: sunset, sea, temple, redwood, a mountain wearing cloud.</p>
+        <a class="letter-cta" href="#work">The collections</a>
+      </div>
+    </section>
+
+    <main id="work-view" class="work">
       <header class="work-header">
         <button id="brand-home" class="brand" type="button" data-site-name>Daniel Aerial Photography</button>
         <p class="work-label">Work</p>
@@ -141,7 +158,7 @@
       <span class="theme-label">Tone</span>
     </div>
 
-    <script src="assets/site.js?v=6"></script>
-    <script src="assets/hub.js?v=3"></script>
+    <script src="assets/site.js?v=7"></script>
+    <script src="assets/hub.js?v=4"></script>
   </body>
 </html>

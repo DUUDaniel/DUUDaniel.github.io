@@ -52,6 +52,7 @@ function hideMains() {
   intro.classList.add("is-away");
   intro.setAttribute("inert", "");
   intro.setAttribute("aria-hidden", "true");
+  if (typeof letter !== "undefined" && letter) letter.classList.add("hidden");
   work.classList.add("hidden");
   if (hubView) hubView.classList.add("hidden");
   categoryView.classList.add("hidden");
@@ -286,11 +287,8 @@ function routeHub() {
     return;
   }
   document.title = SITE_NAME;
-  let entered = false;
-  try { entered = sessionStorage.getItem("dap-entered") === "1"; } catch (error) { entered = false; }
-  if (entered || hash === "work") {
+  if (hash === "work") {
     showWork();
-    if (hash === "work") history.replaceState(null, "", location.pathname + location.search);
     return;
   }
   showIntro();

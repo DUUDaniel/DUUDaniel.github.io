@@ -320,6 +320,16 @@ const templeAboveTwoRivers = {
   ],
 };
 
+const LETTER = {
+  kicker: "A note",
+  name: "Daniel",
+  lede: "I fly to see how the land holds light.",
+  paragraphs: [
+    "On the ground a forest is trunks. From the air the stand just continues — no wall, only canopy, river, and the last band of the day.",
+    "I take the aircraft up with whoever will come. These stills and reels are what the flights keep: sunset, sea, temple, redwood, a mountain wearing cloud.",
+  ],
+};
+
 const HERO = {
   ...flyingIntoTheSunset,
   src: driveSrc(flyingIntoTheSunset.id, 1920),
@@ -520,6 +530,34 @@ function coverOf(category) {
   return category.photos[Math.floor(Math.random() * category.photos.length)].src;
 }
 
+function reelPhotos(count, categories) {
+  const n = count || 7;
+  const list = categories || CATEGORIES;
+  const picked = [];
+  const used = new Set();
+  shuffle(list).forEach((category) => {
+    if (picked.length >= n) return;
+    const unused = category.photos.filter((item) => !used.has(item.id));
+    if (!unused.length) return;
+    const pick = unused[Math.floor(Math.random() * unused.length)];
+    used.add(pick.id);
+    picked.push(pick);
+  });
+  if (picked.length < n) {
+    const rest = [];
+    list.forEach((category) => {
+      category.photos.forEach((item) => {
+        if (!used.has(item.id)) {
+          used.add(item.id);
+          rest.push(item);
+        }
+      });
+    });
+    picked.push(...shuffle(rest).slice(0, n - picked.length));
+  }
+  return shuffle(picked).slice(0, n);
+}
+
 function bindDriveImage(img, primary, fallback, lastResort) {
   img.referrerPolicy = "no-referrer";
   img.src = primary;
@@ -534,11 +572,12 @@ function bindDriveImage(img, primary, fallback, lastResort) {
 }
 
 const intro = document.querySelector("#intro");
+const letter = document.querySelector("#letter");
 const work = document.querySelector("#work-view");
 const categoryView = document.querySelector("#category");
 const grid = document.querySelector("#grid");
 const titleEls = document.querySelectorAll("[data-site-name]");
-let view = "intro";
+let view = "home";
 
 titleEls.forEach((el) => {
   el.textContent = SITE_NAME;
@@ -576,30 +615,59 @@ grid.querySelectorAll("img[data-cover]").forEach((img) => {
   });
 });
 
-function showIntro() {
-  view = "intro";
-  document.body.style.overflow = "hidden";
-  intro.classList.remove("is-away");
+const letterStrip = document.querySelector("#letter-strip");
+if (letterStrip) {
+  const stills = reelPhotos(7);
+  const loop = stills.concat(stills);
+  letterStrip.innerHTML = loop
+    .map(
+      (item) => `
+      <figure class="letter-frame">
+        <img src="${item.src}" alt="${item.alt}" referrerpolicy="no-referrer" data-fallback="${item.fallbackSrc}" />
+      </figure>`,
+    )
+    .join("");
+  if (stills.length) letterStrip.classList.add("is-on");
+  letterStrip.querySelectorAll("img[data-fallback]").forEach((img) => {
+    img.addEventListener("error", () => {
+      const next = img.getAttribute("data-fallback");
+      if (next && img.src !== next) img.src = next;
+    });
+  });
+}
+
+if (letter) {
+  const nameEl = letter.querySelector(".letter-name");
+  const ledeEl = letter.querySelector(".letter-lede");
+  const kickerEl = letter.querySelector(".kicker");
+  if (nameEl) nameEl.textContent = LETTER.name;
+  if (ledeEl) ledeEl.textContent = LETTER.lede;
+  if (kickerEl) kickerEl.textContent = LETTER.kicker;
+}
+
+function showHome(target) {
+  view = "home";
+  document.body.style.overflow = "";
+  intro.classList.remove("is-away", "hidden");
   intro.removeAttribute("inert");
   intro.setAttribute("aria-hidden", "false");
-  work.classList.add("hidden");
+  if (letter) letter.classList.remove("hidden");
+  work.classList.remove("hidden");
   categoryView.classList.add("hidden");
+  const jump = () => {
+    if (target === "work") document.getElementById("work-view")?.scrollIntoView({ behavior: "auto" });
+    else if (target === "letter") document.getElementById("letter")?.scrollIntoView({ behavior: "smooth" });
+    else window.scrollTo({ top: 0, behavior: "auto" });
+  };
+  requestAnimationFrame(jump);
+}
+
+function showIntro() {
+  showHome();
 }
 
 function showWork() {
-  view = "work";
-  document.body.style.overflow = "";
-  try {
-    sessionStorage.setItem("dap-entered", "1");
-  } catch (error) {
-    /* ignore */
-  }
-  intro.classList.add("is-away");
-  intro.setAttribute("inert", "");
-  intro.setAttribute("aria-hidden", "true");
-  work.classList.remove("hidden");
-  categoryView.classList.add("hidden");
-  window.scrollTo({ top: 0, behavior: "auto" });
+  showHome("work");
 }
 
 function showCategory(slug) {
@@ -614,6 +682,7 @@ function showCategory(slug) {
   intro.classList.add("is-away");
   intro.setAttribute("inert", "");
   intro.setAttribute("aria-hidden", "true");
+  if (letter) letter.classList.add("hidden");
   work.classList.add("hidden");
   categoryView.classList.remove("hidden");
   document.querySelector("#cat-title").textContent = category.title;
@@ -666,80 +735,27 @@ function route() {
     return;
   }
   document.title = SITE_NAME;
-  let entered = false;
-  try {
-    entered = sessionStorage.getItem("dap-entered") === "1";
-  } catch (error) {
-    entered = false;
-  }
-  if (entered || hash === "work") {
-    showWork();
-    if (hash === "work") {
-      history.replaceState(null, "", location.pathname + location.search);
-    }
+  if (hash === "work") {
+    showHome("work");
     return;
   }
-  showIntro();
+  showHome();
 }
 
 function enter() {
-  if (view !== "intro") return;
-  try {
-    sessionStorage.setItem("dap-entered", "1");
-  } catch (error) {
-    /* ignore */
-  }
-  showWork();
-}
-
-function onWheel(event) {
-  if (view !== "intro") return;
-  if (event.deltaY > 10) {
-    event.preventDefault();
-    enter();
-  }
-}
-
-let startY = 0;
-function onTouchStart(event) {
-  startY = event.touches[0]?.clientY ?? 0;
-}
-function onTouchMove(event) {
-  if (view !== "intro") return;
-  const y = event.touches[0]?.clientY ?? startY;
-  if (startY - y > 36) {
-    event.preventDefault();
-    enter();
-  }
-}
-function onKey(event) {
-  if (view !== "intro") return;
-  if (["ArrowDown", "PageDown", " ", "Enter"].includes(event.key)) {
-    event.preventDefault();
-    enter();
-  }
+  showHome("letter");
 }
 
 window.addEventListener("hashchange", route);
-intro.addEventListener("wheel", onWheel, { passive: false });
-intro.addEventListener("touchstart", onTouchStart, { passive: true });
-intro.addEventListener("touchmove", onTouchMove, { passive: false });
-window.addEventListener("keydown", onKey);
 
 document.querySelector("#scroll-enter").addEventListener("click", enter);
 document.querySelector("#brand-home").addEventListener("click", () => {
-  try {
-    sessionStorage.removeItem("dap-entered");
-  } catch (error) {
-    /* ignore */
-  }
   if (location.hash) history.replaceState(null, "", location.pathname + location.search);
-  showIntro();
-  window.scrollTo({ top: 0, behavior: "auto" });
+  showHome();
 });
 document.querySelector("#skip").addEventListener("click", (event) => {
   event.preventDefault();
-  enter();
+  showHome("work");
 });
 
 function openLightbox(photos, index) {
