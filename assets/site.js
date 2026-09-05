@@ -593,14 +593,14 @@ grid.innerHTML = CATEGORIES.map((category) => {
   const cover = uniqueCovers[category.slug] || category.cover;
   return `
   <a class="card" href="#gallery/${category.slug}">
-    <div class="card-tone" aria-hidden="true"></div>
-    <img data-cover="${category.cover}" src="${cover}" alt="" referrerpolicy="no-referrer" />
-    <div class="card-veil" aria-hidden="true"></div>
+    <span class="print-mat card-print">
+      <span class="print-window card-window">
+        <img data-cover="${category.cover}" src="${cover}" alt="" referrerpolicy="no-referrer" />
+      </span>
+    </span>
     <div class="card-copy">
-      <div>
-        <h2>${category.title}</h2>
-        <p>${category.blurb}</p>
-      </div>
+      <h2>${category.title}</h2>
+      <p>${category.blurb}</p>
       <span class="card-view">View</span>
     </div>
   </a>`;

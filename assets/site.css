@@ -369,16 +369,20 @@ img { display: block; max-width: 100%; }
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
-  padding: 0 0.75rem 4rem;
+  gap: 2.25rem;
+  width: min(100%, 40rem);
+  margin: 0 auto;
+  padding: 0.5rem 1.25rem 5rem;
 }
 
 .card {
   position: relative;
-  display: block;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: var(--surface);
+  display: grid;
+  grid-template-columns: minmax(9.25rem, 42%) minmax(0, 1fr);
+  gap: 1.1rem 1.35rem;
+  align-items: center;
+  overflow: visible;
+  background: none;
   text-decoration: none;
   animation: card-rise 620ms var(--ease) both;
 }
@@ -393,9 +397,18 @@ img { display: block; max-width: 100%; }
 .card:nth-child(8) { animation-delay: 320ms; }
 .card:nth-child(9) { animation-delay: 360ms; }
 .card:nth-child(10) { animation-delay: 400ms; }
+.card:nth-child(11) { animation-delay: 440ms; }
 
-.card img,
-.card-tone {
+.card-print {
+  padding: 0.5rem 0.5rem 0.72rem;
+}
+
+.card-window {
+  position: relative;
+  aspect-ratio: 3 / 2;
+}
+
+.card-window img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -404,46 +417,46 @@ img { display: block; max-width: 100%; }
   transition: transform 700ms var(--ease);
 }
 
-.card:hover img { transform: scale(1.05); }
-
-.card-tone { background: var(--surface); }
-
-.card-veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgb(11 11 12 / 0.8), rgb(11 11 12 / 0.15), rgb(11 11 12 / 0.2));
-}
+.card:hover img { transform: scale(1.04); }
 
 .card-copy {
-  position: absolute;
-  inset: auto 0 0 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem;
+  position: static;
+  display: block;
+  padding: 0.1rem 0 0;
 }
 
 .card-copy h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: clamp(1.4rem, 1.05rem + 1.1vw, 1.85rem);
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.05;
 }
 
 .card-copy p {
-  margin: 0.5rem 0 0;
+  margin: 0.4rem 0 0;
   color: var(--muted);
   font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .card-view {
-  display: none;
+  display: inline-block;
+  margin-top: 0.7rem;
   font-size: 0.6875rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+@media (max-width: 539px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .card-print {
+    width: min(72%, 15rem);
+  }
 }
 
 .footer {
@@ -491,9 +504,10 @@ img { display: block; max-width: 100%; }
 
 .frames {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-  margin-top: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem 1rem;
+  width: min(100%, 36rem);
+  margin: 2.5rem auto 0;
 }
 
 .frame {
@@ -537,9 +551,13 @@ img { display: block; max-width: 100%; }
 .photo-btn:hover img { transform: scale(1.05); }
 
 .film-btn {
+  overflow: visible;
+  background: none;
+}
+
+.film-btn .print-window {
+  position: relative;
   aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: var(--surface);
 }
 
 .film-btn img {
@@ -736,10 +754,19 @@ body:has(.lightbox:not(.hidden)) .theme-picker {
 
 @media (min-width: 768px) {
   .work-header, .cat-header, .cat-body { padding-left: 2.5rem; padding-right: 2.5rem; }
-  .grid, .frames { grid-template-columns: 1fr 1fr; gap: 1rem; padding-left: 1.5rem; padding-right: 1.5rem; }
-  .card-copy { padding: 1.75rem; }
-  .card-copy h2 { font-size: 2.25rem; }
-  .card-view { display: inline; }
+  .grid {
+    width: min(100%, 72rem);
+    grid-template-columns: 1fr 1fr;
+    gap: 2.75rem 3.25rem;
+    padding: 0.5rem 2.5rem 5.5rem;
+  }
+  .card-copy h2 { font-size: 1.85rem; }
+  .frames {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.65rem 1.4rem;
+    width: min(100%, 54rem);
+    padding: 0;
+  }
   .letter {
     grid-template-columns: minmax(14rem, 17.5rem) minmax(0, 1fr);
     gap: clamp(3rem, 8vw, 7.5rem);

@@ -87,31 +87,31 @@ function showHub(slug) {
 
   document.querySelector("#hub-cards").innerHTML = `
     <a class="card hub-card" href="#gallery/${category.slug}/photos">
-      <div class="card-tone" aria-hidden="true"></div>
-      <img src="${stillCover}" alt="" referrerpolicy="no-referrer" data-cover="${category.cover}" />
-      <div class="card-veil" aria-hidden="true"></div>
+      <span class="print-mat card-print">
+        <span class="print-window card-window">
+          <img src="${stillCover}" alt="" referrerpolicy="no-referrer" data-cover="${category.cover}" />
+        </span>
+      </span>
       <div class="card-copy">
-        <div>
-          <p class="hub-kicker">Stills</p>
-          <h2>Photographs</h2>
-          <p>${photoCount ? `${photoCount} from the air` : "Ready for the next flight"}</p>
-        </div>
+        <p class="hub-kicker">Stills</p>
+        <h2>Photographs</h2>
+        <p>${photoCount ? `${photoCount} from the air` : "Ready for the next flight"}</p>
         <span class="card-view">Open</span>
       </div>
     </a>
     <a class="card hub-card" href="#gallery/${category.slug}/film">
-      <div class="card-tone" aria-hidden="true"></div>
-      <img src="${filmCover}" alt="" referrerpolicy="no-referrer" data-cover="${category.cover}" />
-      <div class="card-veil" aria-hidden="true"></div>
-      <span class="play-mark" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <span class="print-mat card-print">
+        <span class="print-window card-window">
+          <img src="${filmCover}" alt="" referrerpolicy="no-referrer" data-cover="${category.cover}" />
+          <span class="play-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </span>
       </span>
       <div class="card-copy">
-        <div>
-          <p class="hub-kicker">Motion</p>
-          <h2>Film</h2>
-          <p>${videoCount ? `${videoCount} aerial reel${videoCount === 1 ? "" : "s"}` : "Reels will hang here"}</p>
-        </div>
+        <p class="hub-kicker">Motion</p>
+        <h2>Film</h2>
+        <p>${videoCount ? `${videoCount} aerial reel${videoCount === 1 ? "" : "s"}` : "Reels will hang here"}</p>
         <span class="card-view">Open</span>
       </div>
     </a>`;
@@ -161,9 +161,13 @@ function showCollection(slug, kind) {
         const poster = filmPoster(item, category);
         return `
         <button class="photo-btn film-btn" type="button" data-index="${index}">
-          <img src="${poster}" alt="${item.title}" referrerpolicy="no-referrer" />
-          <span class="play-mark" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span class="print-mat">
+            <span class="print-window">
+              <img src="${poster}" alt="${item.title}" referrerpolicy="no-referrer" />
+              <span class="play-mark" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </span>
           </span>
           <span class="film-label">${item.title}</span>
         </button>`;
