@@ -238,6 +238,31 @@ const theSunHangingOnTheTemple = photo(
   "The Sun hanging on the temple",
   "A disc caught on the roof-line.",
 );
+const mountainSurroundedByCloud = photo(
+  "1l9tfi6PirR1g1H4VHA8C6ee22cT2vAzz",
+  "Mountain surrounded by cloud",
+  "The peak held in a ring of mist.",
+);
+const mountainWearingAHat = photo(
+  "1MwDFCP9qvTId7nmpb4FUDtRNgkbNN73Y",
+  "Mountain wearing a hat",
+  "A cap of cloud on the summit.",
+);
+const mountainsCoveredByWhiteCloud = photo(
+  "1AjjvBRVuMQHmCtSj33U68_G5SFqsx99w",
+  "Mountains covered by white cloud",
+  "Ridges dissolving into white.",
+);
+const sunlightThroughTheCloudOnTheCliff = photo(
+  "1xB6VY-h2KYgmmZY_0rq-rAAIlBL6jIjj",
+  "Sunlight through the cloud on the cliff",
+  "Light finding the rock face.",
+);
+const sunriseOnTheCliffWithSwallows = photo(
+  "1HKvH4GN2GWaxhSOgQ4IHCri5-VSDyd3W",
+  "Sunrise on the cliff with swallows",
+  "First light, and birds in the updraft.",
+);
 
 const flyingIntoTheRedwoods = {
   title: "Flying into the Redwoods",
@@ -251,6 +276,47 @@ const flyingIntoTheRedwoods = {
     { time: 12, label: "Canopy", thumb: driveThroughTheRedwoods.src },
     { time: 24, label: "Grove", thumb: underTheWoods.src },
     { time: 36, label: "Endless", thumb: autumnLeaves.src },
+  ],
+};
+
+const mountainViews = {
+  title: "Mountain views",
+  description: "Ridges, cloud, and cliff light from the air.",
+  driveId: "1ar8HHExO8qcCV413o-8IudDHFXPK7Ex7",
+  skypixel: "https://www.skypixel.com/videos/834befa5-22de-42d7-b663-e634fe4023d2",
+  poster: mountainSurroundedByCloud,
+  moments: [
+    { time: 0, label: "Cloud", thumb: mountainSurroundedByCloud.src },
+    { time: 15, label: "Hat", thumb: mountainWearingAHat.src },
+    { time: 30, label: "White", thumb: mountainsCoveredByWhiteCloud.src },
+    { time: 45, label: "Cliff", thumb: sunlightThroughTheCloudOnTheCliff.src },
+  ],
+};
+
+const zhuhaiSunset = {
+  title: "Zhuhai Sunset",
+  description: "A beautiful afternoon over Zhuhai — last light on water and the grid.",
+  driveId: "11cGXkc_tAW-rbZSmnaoIzvXz12tktK-2",
+  skypixel: "https://www.skypixel.com/videos/the-day-i-was-in-zhuhai-what-a-beautiful-afternoon",
+  poster: burningSkyline,
+  moments: [
+    { time: 0, label: "City", thumb: cyberCity.src },
+    { time: 15, label: "River", thumb: cityBesidesTheRiver.src },
+    { time: 30, label: "Skyline", thumb: burningSkyline.src },
+    { time: 45, label: "Dusk", thumb: flyingOverTheWaterIntoTheSunset.src },
+  ],
+};
+
+const templeAboveTwoRivers = {
+  title: "Temple above the two rivers",
+  description: "The roof between two silver courses, seen from the air.",
+  driveId: "1YS7EOgv4xzSgHjNClKVqkVsU14dNqufX",
+  skypixel: "https://www.skypixel.com/videos/the-temple-above-two-rivers",
+  poster: theSunHangingOnTheTemple,
+  moments: [
+    { time: 0, label: "Roof", thumb: theSunHangingOnTheTemple.src },
+    { time: 15, label: "Spring", thumb: templeInTheSpring.src },
+    { time: 30, label: "Light", thumb: sunriseWithTemple.src },
   ],
 };
 
@@ -318,7 +384,7 @@ const CATEGORIES = [
     blurb: "Sacred roofs in first light.",
     cover: "covers/temples.jpg",
     photos: [theSunHangingOnTheTemple, sunriseWithTemple, templeInTheSpring],
-    videos: [],
+    videos: [templeAboveTwoRivers],
   },
   {
     slug: "city",
@@ -335,7 +401,7 @@ const CATEGORIES = [
       meetingAboveTheWater,
       acrossTheRiver,
     ],
-    videos: [],
+    videos: [zhuhaiSunset],
   },
   {
     slug: "forest",
@@ -350,6 +416,20 @@ const CATEGORIES = [
       sunlightThroughTheGap,
     ],
     videos: [],
+  },
+  {
+    slug: "mountain",
+    title: "Mountain",
+    blurb: "Ridges held in cloud.",
+    cover: driveSrc("1l9tfi6PirR1g1H4VHA8C6ee22cT2vAzz", 1600),
+    photos: [
+      mountainSurroundedByCloud,
+      mountainWearingAHat,
+      mountainsCoveredByWhiteCloud,
+      sunlightThroughTheCloudOnTheCliff,
+      sunriseOnTheCliffWithSwallows,
+    ],
+    videos: [mountainViews],
   },
   {
     slug: "autumn",
