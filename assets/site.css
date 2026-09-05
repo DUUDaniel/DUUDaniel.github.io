@@ -7,6 +7,8 @@ html[data-theme="night"] {
   --faint: #6f6a62;
   --accent: #d7cfc0;
   --surface: #141413;
+  --mat: #1c1b18;
+  --mat-rule: color-mix(in oklab, var(--fg) 18%, transparent);
   --line: color-mix(in oklab, var(--fg) 12%, transparent);
   --font-display: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
@@ -24,6 +26,8 @@ html[data-theme="paper"] {
   --faint: #948c82;
   --accent: #5c5348;
   --surface: #e8dfd2;
+  --mat: #f7f2e8;
+  --mat-rule: color-mix(in oklab, var(--fg) 14%, transparent);
   --line: color-mix(in oklab, var(--fg) 12%, transparent);
   --shadow-border: 0 0 0 1px color-mix(in oklab, var(--fg) 10%, transparent);
 }
@@ -36,6 +40,8 @@ html[data-theme="fog"] {
   --faint: #6a7480;
   --accent: #c5d0d8;
   --surface: #171c22;
+  --mat: #1e242b;
+  --mat-rule: color-mix(in oklab, var(--fg) 16%, transparent);
   --line: color-mix(in oklab, var(--fg) 12%, transparent);
   --shadow-border: 0 0 0 1px color-mix(in oklab, var(--fg) 10%, transparent);
 }
@@ -48,6 +54,8 @@ html[data-theme="dusk"] {
   --faint: #7a6b5e;
   --accent: #d4c0ac;
   --surface: #1a1512;
+  --mat: #221c18;
+  --mat-rule: color-mix(in oklab, var(--fg) 16%, transparent);
   --line: color-mix(in oklab, var(--fg) 12%, transparent);
   --shadow-border: 0 0 0 1px color-mix(in oklab, var(--fg) 10%, transparent);
 }
@@ -60,6 +68,8 @@ html[data-theme="pine"] {
   --faint: #67756c;
   --accent: #c4d4c8;
   --surface: #131916;
+  --mat: #1a221e;
+  --mat-rule: color-mix(in oklab, var(--fg) 16%, transparent);
   --line: color-mix(in oklab, var(--fg) 12%, transparent);
   --shadow-border: 0 0 0 1px color-mix(in oklab, var(--fg) 10%, transparent);
 }
@@ -217,11 +227,26 @@ img { display: block; max-width: 100%; }
   width: min(58vw, 16.5rem);
 }
 
+.print-mat {
+  background: var(--mat);
+  padding: 0.7rem 0.7rem 0.95rem;
+  box-shadow: 0 0 0 1px var(--mat-rule);
+}
+
+.print-window {
+  display: block;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.letter-print {
+  padding: 0.8rem 0.8rem 1.15rem;
+}
+
 .letter-gate {
   aspect-ratio: 2 / 3;
   overflow: hidden;
   background: var(--surface);
-  box-shadow: var(--shadow-border);
 }
 
 .letter-strip {
@@ -472,26 +497,37 @@ img { display: block; max-width: 100%; }
 }
 
 .frame {
+  padding: 0.45rem 0.45rem 0.65rem;
+  background: var(--mat);
+  box-shadow: 0 0 0 1px var(--mat-rule);
+}
+
+.frame::after {
+  content: "";
+  display: block;
   aspect-ratio: 3 / 2;
   background: var(--surface);
-  box-shadow: var(--shadow-border);
 }
 
 .photo-btn {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
   padding: 0;
   border: 0;
-  background: var(--surface);
+  background: none;
   cursor: zoom-in;
 }
 
+.photo-btn .print-mat {
+  padding: 0.48rem 0.48rem 0.68rem;
+}
+
+.photo-btn .print-window {
+  aspect-ratio: 3 / 2;
+}
+
 .photo-btn img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -499,6 +535,20 @@ img { display: block; max-width: 100%; }
 }
 
 .photo-btn:hover img { transform: scale(1.05); }
+
+.film-btn {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.film-btn img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .empty-note {
   margin-top: 2.5rem;
@@ -519,10 +569,21 @@ img { display: block; max-width: 100%; }
 }
 
 .lightbox img {
-  max-height: 78dvh;
+  max-height: 68dvh;
   width: auto;
   max-width: 100%;
   object-fit: contain;
+}
+
+.lightbox .print-mat {
+  padding: 1.05rem 1.05rem 1.4rem;
+  max-width: 100%;
+}
+
+.lightbox .print-window {
+  display: flex;
+  justify-content: center;
+  background: #111;
 }
 
 .lightbox figure {

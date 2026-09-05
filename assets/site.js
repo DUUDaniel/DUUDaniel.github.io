@@ -710,7 +710,9 @@ function showCategory(slug) {
     .map(
       (item, index) => `
         <button class="photo-btn" type="button" data-index="${index}">
-          <img src="${item.src}" alt="${item.alt}" referrerpolicy="no-referrer" data-fallback="${item.fallbackSrc}" />
+          <span class="print-mat"><span class="print-window">
+            <img src="${item.src}" alt="${item.alt}" referrerpolicy="no-referrer" data-fallback="${item.fallbackSrc}" />
+          </span></span>
         </button>`,
     )
     .join("")}</div>`;
