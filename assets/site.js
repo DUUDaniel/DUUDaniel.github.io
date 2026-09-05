@@ -323,10 +323,10 @@ const templeAboveTwoRivers = {
 const LETTER = {
   kicker: "A note",
   name: "Daniel",
-  lede: "I fly to see how the land holds light.",
+  lede: "Above the ground, into the sky, let the creativity shines.",
   paragraphs: [
-    "On the ground a forest is trunks. From the air the stand just continues — no wall, only canopy, river, and the last band of the day.",
-    "I take the aircraft up with whoever will come. These stills and reels are what the flights keep: sunset, sea, temple, redwood, a mountain wearing cloud.",
+    "I am Daniel, an aerial photographer, trying to show you my views from the sky.",
+    "Those beautiful moments construct each journey, which is beautiful, and I am trying to tell you the stories behind them.",
   ],
 };
 
@@ -643,6 +643,10 @@ if (letter) {
   if (nameEl) nameEl.textContent = LETTER.name;
   if (ledeEl) ledeEl.textContent = LETTER.lede;
   if (kickerEl) kickerEl.textContent = LETTER.kicker;
+  const bodies = letter.querySelectorAll(".letter-body");
+  LETTER.paragraphs.forEach((paragraph, index) => {
+    if (bodies[index]) bodies[index].textContent = paragraph;
+  });
 }
 
 function showHome(target) {
