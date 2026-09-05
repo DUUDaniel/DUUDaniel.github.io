@@ -96,6 +96,163 @@ const templeInTheSpring = photo(
   "Temple in the Spring",
   "The temple standing in new green.",
 );
+const burningSkyline = photo(
+  "1nU6rhGivt87ovXvsngheFoAZ7bKQFMOr",
+  "Burning Skyline",
+  "The city catching fire at the horizon.",
+);
+const flyingOverTheWaterIntoTheSunset = photo(
+  "1VvsJYA5YDYVQVe9zxpaEMK9JIa68g0u2",
+  "Flying over the water into the sunset",
+  "Open water, then the last light.",
+);
+const running = photo("1Y8eVqY3VYiMnZGcS5NpyLsG9EVz_Rmrs", "Running", "A figure cutting the dusk.");
+const runningMore = photo(
+  "1CoKu4xoyHMNpdzirj7kldf7ckkVrJPo6",
+  "Running more",
+  "The same flight, further on.",
+);
+const runningMoreAndMore = photo(
+  "1KbXS7Qx5-_VGw_w2WhI0o3mjrRWtGbfN",
+  "Running more and more",
+  "Until the light gives out.",
+);
+const runningWithSunset = photo(
+  "1fUrqi_egOWLilILFOvBS4E3Y4KWBxDmc",
+  "Running with sunset",
+  "Pace held against the falling sun.",
+);
+const walkingBesidesTheSea = photo(
+  "1Y6HJnO8Unr7sJicjtjGgq2rZixrUkU-Z",
+  "Walking besides the sea",
+  "The shore at the hour of amber.",
+);
+const driveTogether = photo(
+  "1IfBWkT4U_amR4KI5ls3C0hj4X3nRmdxQ",
+  "Drive Together",
+  "Two tracks sharing the summer road.",
+);
+const enjoyTheBreeze = photo(
+  "11QH2tvKyrScIiZlBGeh5M8pFE4zskzNH",
+  "Enjoy the Breeze",
+  "Warm air held over the field.",
+);
+const fieldFromAbove = photo(
+  "1emEHGrrKE5Pi8YudXK_aNX3Fno2Fehdi",
+  "Field from above",
+  "The summer plot, whole.",
+);
+const rideInTheField = photo(
+  "182Hoiq7LDKt6PvaLGchmnlDbA_RKRht-",
+  "Ride in the field",
+  "A line drawn through the crop.",
+);
+const aloneInTheSea = photo(
+  "17SRtGyFnXj14ct91FwFz33T4ITn2VwgG",
+  "Alone in the sea",
+  "A single craft on open water.",
+);
+const climbersOnTheEdge = photo(
+  "1jEm3x5hOST1ucoPLd9dRVRI5W5AAp36J",
+  "Climbers on the edge",
+  "Figures held against the cliff.",
+);
+const danceInTheSea = photo(
+  "1fK7fPaq1DcwIDVz-vwIU6FIBp6Bh-l29",
+  "Dance in the Sea",
+  "The swell turning under the rotor.",
+);
+const headingTowardsTheShore = photo(
+  "1dMrBQVIFO5JWZpNFMmC3YZk3V83yvED3",
+  "Heading towards the Shore",
+  "The coast coming into reach.",
+);
+const roaringOfTheSea = photo(
+  "1oV_n1y-zbcaCQSKzEAkILUqFgbpTr-c2",
+  "Roaring of the Sea",
+  "White water breaking on stone.",
+);
+const strongShieldOfVolcanicRock = photo(
+  "1npKPxuYKMC2BjHe9AApnKRuLYGmvpKIC",
+  "Strong shield of Volcanic Rock",
+  "The headland holding the tide.",
+);
+const theWavesStrikingTheShore = photo(
+  "1j-MOZrWrJWxWntAVwo_YSe7tBQnilPBw",
+  "The Waves striking the shore",
+  "Each line of water finding land.",
+);
+const walking = photo("1BPrqMZq03nise8u-dkby38KMEruEL4Sy", "Walking", "A path along the water's edge.");
+const walkingOnTheEdge = photo(
+  "1aRxyhVaP6Y95GqdQUC-VSzmFV04a_-4c",
+  "Walking on the edge",
+  "The cliff and the drop, shared.",
+);
+const whenTheColdMeetsWarmth = photo(
+  "10C-QOPn3t_-a9fFYHMhJ5mbdaqFv3nwP",
+  "When the cold meets warmth",
+  "Two waters holding a line.",
+);
+const acrossTheRiver = photo(
+  "1bPXm3dQUWAOqkEyEpMwTwNNJE-400Dg3",
+  "Across the River",
+  "The city looking over the water.",
+);
+const aroundTheCityInAShip = photo(
+  "1zeOPJDrDG8CrBp43KMG-ZXDHiOwxoJB-",
+  "Around the City in a Ship",
+  "A hull drawing the waterfront.",
+);
+const cityBesidesTheRiver = photo(
+  "1hTciD9hx76T-6OFBxOBu3jWw31Lenhu3",
+  "City besides the river",
+  "Towers standing with the current.",
+);
+const intoTheHeartOfTheCity = photo(
+  "1hDtMvTd4HI8zn8YcOzjRV1gOLEgyGOS3",
+  "Into the heart of the City",
+  "The grid closing in.",
+);
+const meetingAboveTheWater = photo(
+  "1en9dAton-CXG7jl9Q63j3CKsTJTJFwJN",
+  "Meeting above the water",
+  "Two spans over the same river.",
+);
+const skyscrapersStandingBesidesTheWater = photo(
+  "1xobi6UCnzl3BCreAfzMOhrw1Q9KGpPj8",
+  "Skyscrapers Standing Besides the Water",
+  "Glass and river in one frame.",
+);
+const throughTheCyberCity = photo(
+  "1Tk_yIC2pjc3FEGTE3G6k9RDFFi4KKICo",
+  "Through the CyberCity",
+  "A corridor of night light.",
+);
+const autumnLeaves = photo(
+  "1umIfB-9nWYOVJg2z6WCYjzVMOAlC4yZr",
+  "Autumn leaves",
+  "Copper laid across the canopy.",
+);
+const theSunHangingOnTheTemple = photo(
+  "1MMuI-eCTEhBHr92DhW_S2SsHd_DsESfI",
+  "The Sun hanging on the temple",
+  "A disc caught on the roof-line.",
+);
+
+const flyingIntoTheRedwoods = {
+  title: "Flying into the Redwoods",
+  description:
+    "A peaceful afternoon above the grove. From the air the forest has no obstruction — the stand just continues.",
+  driveId: "1cFI8BQ6-hv_KvxhlBNbg9LztQaVE7SlV",
+  skypixel: "https://www.skypixel.com/videos/flying-into-the-redwoods",
+  poster: heartOfTheRedwoods,
+  moments: [
+    { time: 0, label: "Lift", thumb: heartOfTheRedwoods.src },
+    { time: 12, label: "Canopy", thumb: driveThroughTheRedwoods.src },
+    { time: 24, label: "Grove", thumb: underTheWoods.src },
+    { time: 36, label: "Endless", thumb: autumnLeaves.src },
+  ],
+};
 
 const HERO = {
   ...flyingIntoTheSunset,
@@ -109,14 +266,43 @@ const CATEGORIES = [
     title: "Sunset",
     blurb: "Last light from the air.",
     cover: "covers/sunset.jpg",
-    photos: [flyingIntoTheSunset, flyWithPassion, sunriseWithTemple, sunlightThroughTheGap],
+    photos: [
+      flyingIntoTheSunset,
+      flyWithPassion,
+      burningSkyline,
+      flyingOverTheWaterIntoTheSunset,
+      runningWithSunset,
+      running,
+      runningMore,
+      runningMoreAndMore,
+      walkingBesidesTheSea,
+      sunriseWithTemple,
+      sunlightThroughTheGap,
+    ],
+    videos: [],
   },
   {
     slug: "sea",
     title: "Sea",
     blurb: "Open water from above.",
     cover: "covers/sea.jpg",
-    photos: [aboveTheBeach, seashore, volcanicShore, volcanicRockToTheSea],
+    photos: [
+      aboveTheBeach,
+      seashore,
+      volcanicShore,
+      volcanicRockToTheSea,
+      aloneInTheSea,
+      danceInTheSea,
+      headingTowardsTheShore,
+      roaringOfTheSea,
+      theWavesStrikingTheShore,
+      strongShieldOfVolcanicRock,
+      climbersOnTheEdge,
+      walkingOnTheEdge,
+      walking,
+      whenTheColdMeetsWarmth,
+    ],
+    videos: [],
   },
   {
     slug: "rivers",
@@ -124,20 +310,32 @@ const CATEGORIES = [
     blurb: "Silver courses through land.",
     cover: "covers/rivers.jpg",
     photos: [],
+    videos: [],
   },
   {
     slug: "temples",
     title: "Temples",
     blurb: "Sacred roofs in first light.",
     cover: "covers/temples.jpg",
-    photos: [sunriseWithTemple, templeInTheSpring],
+    photos: [theSunHangingOnTheTemple, sunriseWithTemple, templeInTheSpring],
+    videos: [],
   },
   {
     slug: "city",
     title: "City",
     blurb: "The grid after dark.",
     cover: "covers/city.jpg",
-    photos: [cyberCity],
+    photos: [
+      cyberCity,
+      throughTheCyberCity,
+      intoTheHeartOfTheCity,
+      cityBesidesTheRiver,
+      skyscrapersStandingBesidesTheWater,
+      aroundTheCityInAShip,
+      meetingAboveTheWater,
+      acrossTheRiver,
+    ],
+    videos: [],
   },
   {
     slug: "forest",
@@ -151,13 +349,21 @@ const CATEGORIES = [
       whenRedMeetsGreen,
       sunlightThroughTheGap,
     ],
+    videos: [],
   },
   {
     slug: "autumn",
     title: "Autumn",
     blurb: "Copper from the air.",
     cover: "covers/autumn.jpg",
-    photos: [whenRedMeetsGreen],
+    photos: [
+      autumnLeaves,
+      whenRedMeetsGreen,
+      heartOfTheRedwoods,
+      driveThroughTheRedwoods,
+      underTheWoods,
+    ],
+    videos: [flyingIntoTheRedwoods],
   },
   {
     slug: "winter",
@@ -165,13 +371,24 @@ const CATEGORIES = [
     blurb: "Quiet snowfields.",
     cover: "covers/winter.jpg",
     photos: [],
+    videos: [],
   },
   {
     slug: "summer",
     title: "Summer",
     blurb: "Warm fields from above.",
     cover: "covers/summer.jpg",
-    photos: [vividField, aboveTheBeach, seashore],
+    photos: [
+      vividField,
+      fieldFromAbove,
+      rideInTheField,
+      driveTogether,
+      enjoyTheBreeze,
+      throughTheField,
+      aboveTheBeach,
+      seashore,
+    ],
+    videos: [],
   },
   {
     slug: "spring",
@@ -179,8 +396,44 @@ const CATEGORIES = [
     blurb: "New green, first blossom.",
     cover: "covers/spring.jpg",
     photos: [templeInTheSpring, throughTheField],
+    videos: [],
   },
 ];
+
+function shuffle(items) {
+  const next = items.slice();
+  for (let i = next.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = next[i];
+    next[i] = next[j];
+    next[j] = tmp;
+  }
+  return next;
+}
+
+function uniqueCoverMap(categories) {
+  const used = new Set();
+  const appearances = new Map();
+  categories.forEach((category) => {
+    category.photos.forEach((item) => {
+      appearances.set(item.id, (appearances.get(item.id) || 0) + 1);
+    });
+  });
+  const map = {};
+  shuffle(categories).forEach((category) => {
+    const unused = category.photos.filter((item) => !used.has(item.id));
+    const exclusive = unused.filter((item) => (appearances.get(item.id) || 0) === 1);
+    const pool = exclusive.length ? exclusive : unused;
+    if (pool.length) {
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      used.add(pick.id);
+      map[category.slug] = pick.src;
+    } else {
+      map[category.slug] = category.cover;
+    }
+  });
+  return map;
+}
 
 function coverOf(category) {
   if (!category.photos.length) return category.cover;
@@ -216,8 +469,9 @@ if (introPhoto) {
   bindDriveImage(introPhoto, HERO.src, HERO.fallbackSrc, HERO_FALLBACK);
 }
 
+const uniqueCovers = uniqueCoverMap(CATEGORIES);
 grid.innerHTML = CATEGORIES.map((category) => {
-  const cover = coverOf(category);
+  const cover = uniqueCovers[category.slug] || category.cover;
   return `
   <a class="card" href="#gallery/${category.slug}">
     <div class="card-tone" aria-hidden="true"></div>

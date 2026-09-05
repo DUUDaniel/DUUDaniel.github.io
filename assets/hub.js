@@ -213,6 +213,23 @@ function openFilmbox(videos, index) {
   const load = (item, start) => {
     titleEl.textContent = item.title ?? "";
     copyEl.textContent = item.description ?? "";
+    let link = root.querySelector(".film-link");
+    if (!link) {
+      link = document.createElement("a");
+      link.className = "film-link";
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      copyEl.after(link);
+    }
+    if (item.skypixel) {
+      link.href = item.skypixel;
+      link.textContent = "Watch on SkyPixel";
+      link.hidden = false;
+    } else {
+      link.removeAttribute("href");
+      link.textContent = "";
+      link.hidden = true;
+    }
     if (!filmHasSource(item)) {
       player.innerHTML = `<p class="empty-note">This reel is listed, but the file is not linked yet.</p>`;
       momentsEl.innerHTML = "";
@@ -224,7 +241,12 @@ function openFilmbox(videos, index) {
       videoEl.addEventListener("loadedmetadata", () => { videoEl.currentTime = start; }, { once: true });
     }
     momentsEl.innerHTML = (item.moments || [])
-      .map((moment, i) => `<button class="moment-btn" type="button" data-i="${i}">${moment.label} · ${formatTime(moment.time)}</button>`)
+      .map((moment, i) => {
+        const thumb = moment.thumb
+          ? `<img class="moment-thumb" src="${moment.thumb}" alt="" referrerpolicy="no-referrer" />`
+          : "";
+        return `<button class="moment-btn" type="button" data-i="${i}">${thumb}${moment.label} · ${formatTime(moment.time)}</button>`;
+      })
       .join("");
     momentsEl.querySelectorAll(".moment-btn").forEach((button) => {
       button.addEventListener("click", (event) => {
